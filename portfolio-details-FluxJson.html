@@ -71,17 +71,73 @@
                 <li><strong>Champ envoyé</strong>: categorie, nom, adresse, num_tel, site, mail, description, geom, id_origine, photo, commune, code_postalx, id.</li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Description</h2>
+          </div>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-12 portfolio-description" style="text-align: left; margin-top: 2%;">
+            <h2>Description</h2>
               <p>
                 Ce projet a été réaliser dans l'entreprise Département De La Loire au cour du stage de deuxième année de BTS SIO.<br>
                 Le but du projet est d'envoyer un flux json en rajoutant &json après le nom de la map dans l'url pour que le prestataire qui est en charge du site loire.fr puisse récupérer toutes les données utilisées pour la carte et que ses données soit accéessible depuis le moteur de recherche du site loire.fr.<br>
                 Pour Tous les types de carte les champs envoyées doivent être les même pour pouvoir automatisé la recherche sur le site loire.fr.<br>
                 La première image montre l'url pour afficher la carte, la deuxième image montre l'url pour récupérer le flux json de la carte. 
-              </p>
-            </div>
-          </div>
+              </p></br></br>
+            <h2>Les Étapes</h2></br>
+            <p><strong><u>Verification il y a &Json dans l'url</u></strong></p>
+            <pre>
+              if(isset($_GET["json"])){
+                echo"&lt;div class='invisible' id='jsonOut'&gt;&lt;/div&gt;";
+              }
+            </pre>
+            <p><strong><u>Création des champs Json (exemple Apidae)</u></strong></p>
+            <pre>
+              window.jsonOutHinaura = new Array(); (initialisation)
 
+              window.Site = "";
+              window.numTel = "";
+              window.mailjson = "";
+              resultItem.informations.moyensCommunication.forEach(item => {
+                  if (item.type.id == '205') {
+                      Site += item.coordonnees.fr + ","
+                  } else if (item.type.id == '201') {
+                      numTel += item.coordonnees.fr + ","
+                  } else if (item.type.id == '204') {
+                      mailjson += item.coordonnees.fr
+                  }
+              })
+              window.image = "";
+              resultItem.illustrations.forEach(item => {
+                  image += item.traductionFichiers[0].url + ",";
+              })
+              jsonOutApidae.push({
+                  categorie: 'Apidae',
+                  nom: resultItem.nom,
+                  adresse: resultItem.localisation.adresse.adresse1 + ' ' + resultItem.localisation.adresse.codePostal,
+                  num_tel: numTel,
+                  site: Site,
+                  mail: mailjson,
+                  description: resultItem.presentation.descriptifCourt.libelleFr,
+                  geom: resultItem.localisation.geolocalisation.geoJson.coordinates,
+                  id_origine: markerId,
+                  photo: image,
+                  commune: resultItem.localisation.adresse.commune,
+                  code_postalx: resultItem.localisation.adresse.codePostal,
+                  id: resultItem.id,
+              })
+            </pre>
+            <p><strong><u>Creation du JSON</u></strong></p>
+            <pre>
+              var jsonOut = document.getElementById('jsonOut'); (initialisation)
+
+              if(jsonOut) {
+                if (jsonVar.features[0].properties.type_carte == 'apidae') {
+                 var writeJsonApidae = JSON.stringify(jsonOutApidae);
+                 document.write(writeJsonApidae);
+               }
+              }
+            </pre>
+          </div>
         </div>
 
       </div>
