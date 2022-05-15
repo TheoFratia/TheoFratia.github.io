@@ -86,56 +86,67 @@
             <h2>Les Étapes</h2></br>
             <p><strong><u>Verification il y a &Json dans l'url</u></strong></p>
             <pre>
-              if(isset($_GET["json"])){
-                echo"&lt;div class='invisible' id='jsonOut'&gt;&lt;/div&gt;";
-              }
+              <code>
+                <div class="flux">
+                  if(isset($_GET["json"])){
+                    echo"&lt;div class='invisible' id='jsonOut'&gt;&lt;/div&gt;";
+                  }
+                </div>
+              </code>
             </pre>
             <p><strong><u>Création des champs Json (exemple Apidae)</u></strong></p>
             <pre>
-              window.jsonOutHinaura = new Array(); (initialisation)
-
-              window.Site = "";
-              window.numTel = "";
-              window.mailjson = "";
-              resultItem.informations.moyensCommunication.forEach(item => {
-                  if (item.type.id == '205') {
-                      Site += item.coordonnees.fr + ","
-                  } else if (item.type.id == '201') {
-                      numTel += item.coordonnees.fr + ","
-                  } else if (item.type.id == '204') {
-                      mailjson += item.coordonnees.fr
-                  }
-              })
-              window.image = "";
-              resultItem.illustrations.forEach(item => {
-                  image += item.traductionFichiers[0].url + ",";
-              })
-              jsonOutApidae.push({
-                  categorie: 'Apidae',
-                  nom: resultItem.nom,
-                  adresse: resultItem.localisation.adresse.adresse1 + ' ' + resultItem.localisation.adresse.codePostal,
-                  num_tel: numTel,
-                  site: Site,
-                  mail: mailjson,
-                  description: resultItem.presentation.descriptifCourt.libelleFr,
-                  geom: resultItem.localisation.geolocalisation.geoJson.coordinates,
-                  id_origine: markerId,
-                  photo: image,
-                  commune: resultItem.localisation.adresse.commune,
-                  code_postalx: resultItem.localisation.adresse.codePostal,
-                  id: resultItem.id,
-              })
+              <code>
+                <div class="flux">
+                  window.jsonOutHinaura = new Array(); (initialisation)
+                  window.Site = "";
+                  window.numTel = "";
+                  window.mailjson = "";
+                  resultItem.informations.moyensCommunication.forEach(item => {
+                      if (item.type.id == '205') {
+                          Site += item.coordonnees.fr + ","
+                      } else if (item.type.id == '201') {
+                          numTel += item.coordonnees.fr + ","
+                      } else if (item.type.id == '204') {
+                          mailjson += item.coordonnees.fr
+                      }
+                  })
+                  window.image = "";
+                  resultItem.illustrations.forEach(item => {
+                      image += item.traductionFichiers[0].url + ",";
+                  })
+                  jsonOutApidae.push({
+                      categorie: 'Apidae',
+                      nom: resultItem.nom,
+                      adresse: resultItem.localisation.adresse.adresse1 + ' ' + resultItem.localisation.adresse.codePostal,
+                      num_tel: numTel,
+                      site: Site,
+                      mail: mailjson,
+                      description: resultItem.presentation.descriptifCourt.libelleFr,
+                      geom: resultItem.localisation.geolocalisation.geoJson.coordinates,
+                      id_origine: markerId,
+                      photo: image,
+                      commune: resultItem.localisation.adresse.commune,
+                      code_postalx: resultItem.localisation.adresse.codePostal,
+                      id: resultItem.id,
+                  })
+                </div>
+              </code>
             </pre>
             <p><strong><u>Creation du JSON</u></strong></p>
             <pre>
-              var jsonOut = document.getElementById('jsonOut'); (initialisation)
+              <code>
+                <div class="flux">
+                  var jsonOut = document.getElementById('jsonOut'); (initialisation)
 
-              if(jsonOut) {
-                if (jsonVar.features[0].properties.type_carte == 'apidae') {
-                 var writeJsonApidae = JSON.stringify(jsonOutApidae);
-                 document.write(writeJsonApidae);
-               }
-              }
+                  if(jsonOut) {
+                    if (jsonVar.features[0].properties.type_carte == 'apidae') {
+                     var writeJsonApidae = JSON.stringify(jsonOutApidae);
+                     document.write(writeJsonApidae);
+                    }
+                  }
+                </div>
+              </code>
             </pre>
           </div>
         </div>

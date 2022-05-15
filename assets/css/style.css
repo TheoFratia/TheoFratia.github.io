@@ -26,7 +26,16 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
-
+pre code{
+  background-color: #272822;
+  color: #fff;
+  display: block;
+  border-radius: 10px;
+  font-size: .875rem;
+}
+.flux{
+  margin-left: -95px;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
