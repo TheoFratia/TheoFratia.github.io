@@ -1,0 +1,21 @@
+<svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ajout du carré avec une bordure -->
+  <rect x="1" y="1" width="45" height="45" rx="8.88889" fill="white" stroke="#000000" stroke-width="0.5"/>
+  <!-- Début code maison -->
+  <g transform="scale(0.8) translate(5, 5)">
+    <polygon style="fill:#66E1FF;" points="46,22.11 46,24.42 43,26.15 43,34.24 25,44.63 14,38.28 14,35.97 12,34.81 10,35.97 7,34.24 
+      7,20.38 4,20.96 4,18.65 22,8.26 34,5.95 "/>
+    <polygon style="fill:#4292A6;" points="25,30.774 28,34.815 43,26.155 43,34.238 25,44.63 "/>
+    <polygon style="fill:#FF5757;" points="16,18.649 4,20.959 4,18.649 16,16.34 28,32.506 28,34.815 "/>
+    <polygon style="fill:#4292A6;" points="34,8.257 22,10.566 22,8.257 34,5.947 46,22.113 46,24.423 "/>
+    <polygon style="fill:#E64E4E;" points="4,18.649 22,8.257 34,5.947 16,16.34 "/>
+    <polygon style="fill:#CC4545;" points="28,32.506 46,22.113 34,5.947 16,16.34 "/>
+    <polygon style="fill:#B33D3D;" points="28,32.506 46,22.113 46,24.423 28,34.815 "/>
+    <polygon style="fill:#4292A6;" points="17,34.238 22,37.124 22,31.351 17,28.464 "/>
+    <polygon style="fill:#4292A6;" points="10,35.97 12,34.815 12,27.887 10,26.732 "/>
+    <polygon style="fill:#4AD8FF;" points="19,33.083 22,34.815 22,31.351 19,29.619 "/>
+    <polygon style="fill:#52B1CC;" points="17,34.238 22,37.124 22,34.815 19,33.083 "/>
+    <polygon style="fill:#FF5757;" points="12,34.815 14,35.97 14,29.041 12,27.887 "/>
+  </g>
+  <!-- Fin code maison -->
+</svg>
